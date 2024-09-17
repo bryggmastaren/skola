@@ -1,0 +1,470 @@
+@font-face {
+  font-family: "ZtChintzy";
+  src: url("media/fonts/ZtChintzy.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Italic versionen */
+@font-face {
+  font-family: "Finder";
+  src: url("media/fonts/Finder.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "indie";
+  src: url("media/fonts/indie.otf.otf") format("opentype");
+  /* Font rubriker? */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Universual selector, stylar alla elementen övergripande om inte annat sägs(?)*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+}
+/* Här min ev. logga, titel och nav-bar är*/
+/* HEADER */
+header {
+  color: #fff;
+  background-image: url("../media/frontpage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+/* Gemensamma egenskaper för h1 & h2 */
+h1,
+h2 {
+  font-family: "Finder", sans-serif;
+  letter-spacing: 0.15rem;
+  word-spacing: 0.15rem;
+}
+h1 {
+  font-size: 3.5rem;
+  padding-top: 1rem;
+  margin: 38rem 2rem 1rem 2rem;
+  padding-bottom: 2rem;
+  color: #ffe600;
+}
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  color: #ffe600;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+
+h3 {
+  font-family: "WILD-WORLD", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  word-spacing: 0.15rem;
+  color: #ff0088;
+  text-align: center;
+  margin-bottom: 8rem;
+  margin: 2rem;
+  text-transform: uppercase;
+}
+
+p {
+  color: rgb(255, 207, 232);
+  font-family: "indie", sans-serif;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  word-spacing: 0.2rem;
+  font-weight: 100;
+}
+
+/* header paragraf */
+header p {
+  padding-left: 3rem;
+}
+
+.header-text {
+  position: relative;
+}
+
+/* Nav-bar, *display flex flyttar listan att visas horisontellt här. *justify-content gör här att set är lika stort mellanrum mellan alla listalternativ *align-items centrerar items vertikalt  */
+nav {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0.3rem;
+  padding-right: 1rem;
+  font-family: "WILD-WORLD", sans-serif;
+}
+/* loggan ........*/
+.logo img {
+  /* för att target bilden i <a> taggen för att resize */
+  width: 80px;
+  height: 70px;
+  margin: 0;
+  margin-left: 0.75rem;
+}
+/* *list-style none tar bort *(pricken) framför listalternativen */
+.menu {
+  letter-spacing: 0.15rem;
+  display: flex;
+  list-style: none;
+  padding-right: 1rem;
+}
+/* padding till vänster om alla alternativen i navbar*/
+.menu li {
+  padding-left: 3.5rem;
+}
+
+.menu li a {
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  /* fick vit linje under texten av position relative?*/
+}
+/* när användaren tar musen över länkarna ändrar de färg */
+.menu li a:hover {
+  color: #ffe600;
+  transform: scale(1.1);
+  transition: color 0.25s ease-in-out, transform 0.1s ease-in-out;
+  font-weight: 600;
+}
+.menu li a:hover::after {
+  width: 100%;
+  font-size: 2rem;
+}
+/* gör så man inte ser burgarn eller krysset som default*/
+.close-menu,
+.open-menu {
+  display: none;
+}
+/* positionering burgarn */
+.open-menu {
+  top: 5%;
+  right: 2px;
+}
+/* positionering kryss */
+.close-menu {
+  /*
+    top: 1rem;
+    left: 1rem;*/
+  z-index: 150;
+}
+
+#check {
+  /* tar bort check-box-rutan */
+  display: none;
+}
+
+/* MAIN */
+main {
+  text-align: center;
+}
+
+#get-tickets {
+  background-image: url("../media/ho.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+  text-decoration: none; /*tar bort underline från länk*/
+}
+
+#get-tickets::before {
+  /*FILTER AV ROSA ÖVER BILDEN*/
+  content: "";
+  position: absolute; /* Positionera den till "absolute" to cover hela föräldersektionen */
+  width: 100%;
+  height: 100%;
+  background: rgba(101, 15, 65, 0.5);
+  backdrop-filter: blur(1px);
+  z-index: 1; /* underst 3 */
+}
+#get-tickets a {
+  z-index: 2; /* mellan 2 */
+  display: block;
+  text-decoration: none; /*tar bort underline länk*/
+  width: calc(100% - 5rem);
+  padding-bottom: 3rem;
+}
+#get-tickets h2 {
+  text-align: left;
+  display: block;
+  padding: 0.75rem 2rem;
+  background: rgb(255, 230, 0);
+  color: #000;
+  z-index: 3; /* överst 3 */
+  margin: 2.5rem 0 2.5rem 5rem;
+  height: 9vh;
+  font-size: 2rem;
+  align-content: center;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+}
+
+#lineup,
+#info,
+#tickets {
+  background-color: #251727;
+  padding: 6rem 3rem 6rem 3rem;
+}
+#contact {
+  padding: 6rem 3rem 6rem 3rem;
+  text-align: center;
+}
+/* INFORMATION */
+#info {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  gap: 3rem 4rem;
+}
+.info-container article {
+  display: grid;
+  height: 30vh;
+  /* max-width: 40vw; ta bort innan presentation???????????*/
+  align-content: center;
+  z-index: 2;
+}
+#info h2 {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  color: #ffe600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#info p {
+  width: 80%;
+  display: inline-block;
+}
+#ticket-info::before,
+#getting-there::before,
+#food-drinks::before,
+#rules::before {
+  content: "";
+  position: absolute; /* Cover the parent element */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(78, 0, 45, 0.5); /* Filter till boxarna*/
+  backdrop-filter: blur(1px); /* Blur, del av "filtret" */
+}
+
+/* 4 block på main med info"länkar"*/
+#ticket-info,
+#getting-there,
+#food-drinks,
+#rules {
+  position: relative; /* Gör att barnet, ::before, är "absolut" till denna position*/
+  text-transform: uppercase;
+  background-color: #ffe600;
+  overflow: hidden; /* gör att filtret är i containern */
+  line-height: 3rem;
+}
+#ticket-info h3,
+#getting-there h3,
+#food-drinks h3,
+#rules h3 {
+  color: #fff;
+  position: relative;
+  z-index: 1; /* Gör att texten är över de andra elementen, så att filtret ej hamnar ovan. Andra z-index är 0 som standard vilket jag ej ändrat */
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  font-weight: 300;
+  text-shadow: 4px 4px 4px #3b1a31; /* skugga, 1. horisontellt, höger, 2. vertikalt, 3. blur*/
+}
+
+#ticket-info {
+  background-image: url(./media/ticket.jpg);
+  background-size: cover;
+}
+#getting-there {
+  background-image: url(./media/transportation.jpeg);
+  background-size: 100%;
+}
+#food-drinks {
+  background-image: url(./media/food.jpg);
+  background-size: cover;
+}
+#rules {
+  background-image: url(./media/security.jpg);
+  background-size: cover;
+}
+/* FOOTER*/
+footer {
+  color: #ff94cd;
+  margin: 2rem;
+}
+
+/*responsiv, gör så att texten blirm indre i nav-baren vid 720px, också för att texten inte ska glida ur */
+@media (max-width: 720px) {
+  .menu li a {
+    padding-right: 5px;
+    font-size: 0.95rem;
+  }
+  /*padding till höger om menyn så "contact" inte flyger ur kanten av sidan*/
+  .menu li {
+    padding-left: 2rem;
+  }
+}
+/* MEDIA QUERY / RESPONSIV */
+/* responsiv , centrerar innehållet osv mobil menyn*/
+@media (max-width: 610px) {
+  h1 {
+    font-size: 2.5rem;
+    margin: 2rem;
+    padding: 1rem 0 0.8rem 0;
+    margin: 34rem 2rem 0 2.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+  header p {
+    font-size: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  header {
+    /*
+    background-image: url("../media/responsive-frontpage4.png");*/
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+  }
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 100;
+    background-color: #000;
+    transition: all 0.4s ease-in-out;
+  }
+  /* mellanrum mellan alternativen*/
+  .menu li {
+    margin-top: 40px;
+  }
+  .menu li a {
+    padding: 10px;
+  }
+  /* Menyn i nav */
+  .close-menu,
+  .open-menu {
+    display: block;
+    font-size: 1.8rem;
+    color: #ffe600;
+    margin-right: 0.75rem;
+  }
+  .close-menu {
+    font-size: 2.2rem;
+  }
+  #check:checked ~ .close-menu {
+    display: block;
+  }
+
+  #check:checked ~ .open-menu {
+    display: none;
+  }
+
+  #check:checked ~ .menu {
+    right: 0;
+  }
+  #check:not(:checked) ~ .close-menu {
+    display: none;
+  }
+
+  #get-tickets h2 {
+    height: 7vh;
+    font-size: 1.6rem;
+    align-content: center;
+    letter-spacing: 0.15rem;
+    font-family: "indie", sans-serif;
+    font-weight: 600;
+  }
+  #info {
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    justify-content: center;
+    align-items: center;
+  }
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0;
+
+    gap: 3rem;
+
+    justify-content: center;
+    align-items: center;
+  }
+  .info-container article {
+    text-align: center;
+    height: 30vh;
+    width: 100%;
+  }
+}
+#contact h2 {
+  padding: 0 3rem 2rem 3rem;
+}
+#contact p {
+  color: #fff;
+}
+
+#lineup,
+#info,
+#tickets {
+  padding: 6rem 2rem 5rem 2rem;
+}
+#contact {
+  font-size: 1rem;
+  padding: 5rem 2rem 5rem 2rem;
+  color: #fff;
+  line-height: 1.4;
+}
